@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>testing out Javascript</title>
+</head>
+<body>
+    <script>
+        "use strict";
+        console.log("Hello Umbriel!")
+        let codeup = "The best";
+        console.log(codeup);
+
+        // Alert - alert(string)
+        // Confirm - confirm(stringquestion) - return a boolean value
+        // Prompt - prompt(stringQuestion) - return a string
+
+        alert(codeup);
+        let decision = confirm('Are you sure you want to delete?');
+        console.log(decision)
+
+        let name = prompt("what is your name?");
+        console.log(name);
+
+        let validName = confirm("You entered: " + name + ". Is this correct?");
+        console.log(validName);
+    </script>
+<script src="js/test.js"></script>
+</body>
+</html>
