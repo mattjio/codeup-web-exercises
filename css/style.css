@@ -4,7 +4,24 @@ line
 comment
 */
 
-.fancy-header {
+h1 {
+    text-align: center;
     color: purple; /* single line comment */
     text-decoration: underline;
+}
+
+h3 {
+    color: midnightblue;
+    text-decoration: underline;
+}
+
+body {
+    background-color: aliceblue;
+    background-image: url(/img/room.jpg);
+    background-size: cover;
+    font-family: Arial;
+}
+
+ul {
+    list-style-type: square;
 }
