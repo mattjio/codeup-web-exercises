@@ -21,4 +21,14 @@ for (let i = 1; i <= 100; i++) {
     }
 }
 
+// warmup April 27, 2022
+
+function firstLetters(x) {
+    let bucket = "";
+    for (let el of x) {
+        bucket += el[0]
+    }
+}
+let testArray = ["john","India","Oscar"]
+firstLetters(testArray)
 })();
