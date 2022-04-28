@@ -32,3 +32,12 @@ function firstLetters(x) {
 let testArray = ["john","India","Oscar"]
 firstLetters(testArray)
 })();
+
+// warmup April 28, 2022 write a function that takes in a string and returns that string in alphabetical order
+
+function alphaString(x) {
+    return x.split('').sort().join('');
+}
+
+console.log(alphaString("codeup"));
+
