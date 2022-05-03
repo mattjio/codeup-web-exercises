@@ -41,3 +41,49 @@ function alphaString(x) {
 
 console.log(alphaString("codeup"));
 
+// write a function that takes in an array of numbers and returns the sum of all elements
+
+function sumArray(arr) {
+    let x = 0
+    for (let el of arr) {
+        x += el;
+    }
+    return x;
+}
+
+
+
+console.log(sumArray([1,2,3,4]));
+
+// warm-up May 3
+
+let product1 = {
+    name: 'Hammer',
+    priceInCents: 400,
+    description: 'It is a a hammer.',
+    inventory: 25034
+}
+
+let product2 = {
+    name: 'Computer',
+    priceInCents: 40000,
+    description: 'It is a computer.',
+    inventory: 33000
+}
+
+let product3 = {
+    name: 'Ruler',
+    priceInCents: 1000,
+    description: 'It is a ruler.',
+    inventory: 2200
+}
+
+
+function returnProductEssentialDetails(obj) {
+    return {
+        name: obj.name,
+        priceInCents: obj.priceInCents
+    }
+}
+
+console.log(returnProductEssentialDetails(product2));

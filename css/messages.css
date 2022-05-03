@@ -14,17 +14,17 @@ div {
 }
 
 .message-info {
-    background-color: lightskyblue;
+    background-color: #CDDEFF;
 }
 
 .message-success {
-    background-color: lightgreen;
+    background-color: #CFF3DA;
 }
 
 .message-warning {
-    background-color: lightgoldenrodyellow;
+    background-color: #FDFBC8;
 }
 
 .message-error {
-    background-color: lightcoral;
+    background-color: #FAD2D6;
 }
