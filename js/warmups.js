@@ -133,3 +133,24 @@ function tallestObject(y) {
     }
     return tallest;
 }
+
+function mostColorful(arr) {
+    let furriest = {fur: []}
+    for (let hamster of arr) {
+        if (hamster.fur.length > furriest.fur.length ) {
+            furriest = hamster
+        }
+    }
+    return furriest
+}
+
+mostColorful(hamsters);
+
+function stringToObject(x) {
+    let stringObject = {}
+        stringObject.string: "x";
+        stringObject.size: x.length;
+        stringObject.containsLetterFromRSTLNE: x.includes("R","S","T","L","N","E");
+        stringObject.isOneWord: x.indexOf(" ") < 0;
+
+}
