@@ -147,7 +147,7 @@ function mostColorful(arr) {
 mostColorful(hamsters);
 
 function stringToObject(x) {
-    let stringObject = {}
+    let stringObject = {};
         stringObject.string: "x";
         stringObject.size: x.length;
         stringObject.containsLetterFromRSTLNE: x.includes("R","S","T","L","N","E");
