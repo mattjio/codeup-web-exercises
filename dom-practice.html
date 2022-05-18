@@ -72,6 +72,15 @@
 
   questions[0].style.color = userColor;
 
+  let button = document.getElementById("changeColor");
+
+  button.addEventListener("click", colorChange)
+
+  function colorChange() {
+    let color = document.getElementById("color").value;
+    document.body.style.backgroundColor = color;
+  }
+
 
 </script>
 </body>
