@@ -5,12 +5,35 @@
     <title>jquery exercises</title>
 </head>
 <body>
-
+    <h1 class="title" id="title">Jquery exercises</h1>
+    <div class="codeup" id="container">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque esse fugit nulla sit totam. Autem commodi dolore exercitationem explicabo, facere ipsa iure provident quas qui quibusdam quisquam temporibus vel voluptatibus.</p>
+        <ul class="list" id="list">
+            <li class="items" id="item1">just</li>
+            <li class="items" id="item2">A</li>
+            <li class="items" id="item3">random</li>
+            <li class="items" id="item4">list</li>
+        </ul>
+    </div>
 
     <script src="js/jquery-3.6.0.js"></script>
     <script>
         $(function() {
-            alert( 'The DOM has finished loading!' );
+            //alert( 'The DOM has finished loading!' );
+
+            //let headerContent = $("#title").html();
+            //alert(headerContent);
+            //$(".codeup").css('border','1px solid red')
+
+            //$("li").css('font-size', '20px').css('background-color', '#FFFF00');
+            // $("h1").css('background-color', '#FFFF00');
+            //$("p").css('background-color', '#FFFF00');
+
+            //let alertHeader = $("h1").html();
+            //alert(alertHeader);
+
+            $("h1, p, li").css('background-color', '#FFFF00');
+
         });
     </script>
 </body>
