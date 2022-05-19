@@ -81,6 +81,23 @@
     document.body.style.backgroundColor = color;
   }
 
+  let newItem = document.getElementById("todo");
+  let list = document.getElementById("todosList");
+  let buttonList = document.getElementById("addTodo");
+
+  buttonList.addEventListener("click", function () {
+    if (newItem.value !== "") {
+      let str = "<li>" + newItem.value + "</li>"
+      list.innerHTML += str;
+      newItem.value = "";
+    }
+  })
+
+
+
+
+
+
 
 </script>
 </body>
