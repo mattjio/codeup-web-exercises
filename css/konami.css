@@ -1,0 +1,38 @@
+h1 {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    background: rgba(0, 0, 0, 0.5);
+    color: green;
+    width: 100%;
+    padding: 20px;
+    z-index: 10;
+    text-align: center;
+    font-family: 'Source Code Pro', monospace;
+}
+
+.gif {
+    display: none;
+    z-index: 9;
+
+}
+
+body{ margin:0;}
+
+
+#videobcg {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    -o-filter: blur(15px);
+    filter: blur(5px);
+    object-fit: cover;
+    transform: scale(1.04);
+}
+
+body {
+    background-color: black;
+}
+

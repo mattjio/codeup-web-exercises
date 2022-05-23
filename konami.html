@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Konami Code</title>
+</head>
+<body>
+
+<div id="container">
+    <h1 id="title"></h1>
+    <video id="videobcg" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0">
+        <source src="img/matrixbg.mp4" type="video/mp4">
+        Sorry, your browser does not support HTML5 video.
+    </video>
+<div class="gif" style="padding-top:56.250%;position:relative;"><iframe class="contra" src="https://gifer.com/embed/2xHJ" width="50%" height="50%" style='position:absolute;top:50%;left:50%; margin-right: -50%;
+    transform: translate(-50%, -50%)' frameBorder="0" allowFullScreen></iframe></div>
+</div>
+<script src="js/jquery-3.6.0.js"></script>
+<link rel="stylesheet" href="css/konami.css">
+<script>
+    "use strict";
+
+    var i = 0;
+    var txt = 'Hello. Please enter your code'; /* The text */
+    var speed = 100; /* The speed/duration of the effect in milliseconds */
+
+    function typeWriter() {
+        if (i < txt.length) {
+            document.getElementById("title").innerHTML += txt.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+        }
+    }
+
+    typeWriter();
+
+    $(document).keyup(function(event){
+        console.log(event.keyCode);
+    });
+
+    var global = {
+
+        konami: function() {
+            var konamikeys = [38,38,40,40,37,39,37,39,66,65],
+                started = false,
+                count = 0;
+
+            $(document).keydown(function(e){
+                var reset = function() {
+                    started = false;
+                    count = 0;
+                    return;
+                };
+
+                let key = e.keyCode;
+
+                // Begin watching if first key in sequence was pressed.
+                if(!started){
+                    if(key == 38){
+                        started = true;
+                    }
+                }
+
+                // If we've started, pay attention to key presses, looking for right sequence.
+                if (started){
+
+                    if (konamikeys[count] == key){
+                        count++;
+                    } else {
+                        // Incorrect key, restart.
+                        reset();
+                    }
+                    if (count == 10){
+                        // Success!
+                        $(".gif, .contra").fadeIn();
+                        reset();
+                    }
+                } else {
+                    reset();
+                }
+            });
+        }
+    }
+
+    global.konami();
+</script>
+</body>
+</html>
