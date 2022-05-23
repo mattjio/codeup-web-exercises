@@ -5,3 +5,7 @@
 .highlight {
     background-color: yellow;
 }
+
+.bolded {
+    font-weight: bold;
+}

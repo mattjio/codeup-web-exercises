@@ -39,23 +39,23 @@
     <dd class="invisible">The National Park System is a bureau of the Department of the Interior.</dd>
 </dl>
 <ul>
-    <h3>Yellowstone</h3>
-    <ul class="facts">
+    <h3 class="yellowstoneHeader">Yellowstone</h3>
+    <ul class="yellowstone">
         <li>YellowStone was the first National Park established in March 1, 1872</li>
         <li>Yellowstone is in the state of Wyoming</li>
         <li>Yellowstone is larger than the states of Rhode Island and Delaware combined.</li>
         <li>Yellowstone is home to more than 500 active geysers which is over half the world's geysers.</li>
     </ul>
-    <h3>Grand Canyon</h3>
-    <ul class="facts">
+    <h3 class="grandHeader">Grand Canyon</h3>
+    <ul class="grand">
         <li>The age of the Grand Canyon varies from 6 million to 70 million years ago.</li>
         <li>The FAA was created due to two planes colliding while sightseeing over the Grand Canyon</li>
         <li>Paul Bunyan did not create the Grand Canyon</li>
         <li>There is a town in the Grand Canyon with a population of 208. Supai Village is the most remote community in the continental United States.
         </li>
     </ul>
-    <h3>Big Bend</h3>
-    <ul class="facts">
+    <h3 class="bigBendHeader">Big Bend</h3>
+    <ul class="bigBend">
         <li>Big Bend was made a national park on June 20, 1935</li>
         <li>The name Big Bend comes from a large bend in the Rio Grande River along the park boundary.</li>
         <li>In 2012, the park was named as an International Dark Sky Park. Big Bend National Park has the darkest measured skies in the lower 48 states, and star gazing here is obviously superb.</li>
@@ -73,7 +73,7 @@
 <script>
 
     $(document).ready(function() {
-        $('#toggle').click(function(event) {
+        $('#toggle').click(function (event) {
             event.preventDefault();
             $('dd').toggleClass('invisible');
         });
@@ -83,10 +83,21 @@
         })
 
         $('.btn').click(function () {
-            $( "li:last-child" ).toggleClass( "highlight");
+            $("li:last-child").toggleClass("highlight");
         })
-    });
 
+        $('.yellowstoneHeader').click(function () {
+            $('.yellowstone').toggleClass("bolded");
+        })
+
+        $('.grandHeader').click(function () {
+            $('.grand').toggleClass("bolded");
+        });
+
+        $('.bigBendHeader').click(function () {
+            $('.bigBend').toggleClass("bolded");
+        });
+    });
 
 </script>
 </body>
