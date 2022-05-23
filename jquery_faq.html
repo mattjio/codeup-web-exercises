@@ -18,7 +18,7 @@
     <dd class="invisible">The National Park Service was created by an act signed by President Woodrow Wilson on August 25, 1916.</dd>
 
     <dt>Which was the nation's first National Park?</dt>
-    <dd class="invisible">The nation's first National Park was Yellowstone National Park in Wyoming stablished by an act signed by President Ulysses S. Grant on March 1, 1872</dd>
+    <dd class="invisible">The nation's first National Park was Yellowstone National Park in Wyoming established by an act signed by President Ulysses S. Grant on March 1, 1872</dd>
 
     <dt>How many areas are part of the National Park System?</dt>
     <dd class="invisible">he system includes 423 areas covering more than 85 million acres in every state, the District of Columbia, American Samoa, Guam, Puerto Rico, and the Virgin Islands. </dd>
@@ -38,6 +38,35 @@
     <dt>What government agency oversees the National Park System?</dt>
     <dd class="invisible">The National Park System is a bureau of the Department of the Interior.</dd>
 </dl>
+<ul>
+    <h3>Yellowstone</h3>
+    <ul class="facts">
+        <li>YellowStone was the first National Park established in March 1, 1872</li>
+        <li>Yellowstone is in the state of Wyoming</li>
+        <li>Yellowstone is larger than the states of Rhode Island and Delaware combined.</li>
+        <li>Yellowstone is home to more than 500 active geysers which is over half the world's geysers.</li>
+    </ul>
+    <h3>Grand Canyon</h3>
+    <ul class="facts">
+        <li>The age of the Grand Canyon varies from 6 million to 70 million years ago.</li>
+        <li>The FAA was created due to two planes colliding while sightseeing over the Grand Canyon</li>
+        <li>Paul Bunyan did not create the Grand Canyon</li>
+        <li>There is a town in the Grand Canyon with a population of 208. Supai Village is the most remote community in the continental United States.
+        </li>
+    </ul>
+    <h3>Big Bend</h3>
+    <ul class="facts">
+        <li>Big Bend was made a national park on June 20, 1935</li>
+        <li>The name Big Bend comes from a large bend in the Rio Grande River along the park boundary.</li>
+        <li>In 2012, the park was named as an International Dark Sky Park. Big Bend National Park has the darkest measured skies in the lower 48 states, and star gazing here is obviously superb.</li>
+        <li>The large range of elevations in the park contribute to its biological diversity. There are 56 species of reptiles, 75 species of mammals, more than 450 species of birds, along with at least 1,200 species of plants.
+        </li>
+    </ul>
+
+</ul>
+
+<button type="button" class="btn">Click Me!</button>
+
 
 <script src="js/jquery-3.6.0.js"></script>
 <link rel="stylesheet" href="css/parks.css">
@@ -51,6 +80,10 @@
 
         $('dt').click(function () {
             $(this).toggleClass('highlight');
+        })
+
+        $('.btn').click(function () {
+            $( "li:last-child" ).toggleClass( "highlight");
         })
     });
 
