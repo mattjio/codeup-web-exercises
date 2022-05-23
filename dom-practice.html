@@ -95,6 +95,21 @@
 
 
 
+  function changeSize () {
+    let headers = document.getElementsByTagName("h1");
+    for (let header of headers) {
+      if (header.style.fontSize !== '10px') {
+        header.style.fontSize = '10px';
+      } else {
+        header.style.fontSize = '20px';
+      }
+    }
+  }
+
+let headerInterval = setInterval(changeSize, 1000);
+
+let toggleButton = document.getElementById("toggleH1");
+
 
 
 

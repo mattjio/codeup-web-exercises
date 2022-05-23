@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery faq</title>
+</head>
+<body>
+<a href="#" id="toggle">click me</a>
+<p>FAQ about US National Parks</p>
+<dl>
+    <dt>Who is the director of the National Park Service?</dt>
+    <dd class="invisible">The director of the National Park System is Charles F. "Chuck" Sams III</dd>
+
+    <dt>How many employees are in the National Park System?</dt>
+    <dd class="invisible">There are approximately 20,000 employees in the National Park System.</dd>
+
+    <dt>How old is the National Park System?</dt>
+    <dd class="invisible">The National Park Service was created by an act signed by President Woodrow Wilson on August 25, 1916.</dd>
+
+    <dt>Which was the nation's first National Park?</dt>
+    <dd class="invisible">The nation's first National Park was Yellowstone National Park in Wyoming stablished by an act signed by President Ulysses S. Grant on March 1, 1872</dd>
+
+    <dt>How many areas are part of the National Park System?</dt>
+    <dd class="invisible">he system includes 423 areas covering more than 85 million acres in every state, the District of Columbia, American Samoa, Guam, Puerto Rico, and the Virgin Islands. </dd>
+
+    <dt>What is the Largest National park site?</dt>
+    <dd class="invisible">The largest National Park is the Wrangell-St. Elias National Park and Preserve in Alaska at 13.2 million acres</dd>
+
+    <dt>What is the smallest National park site?</dt>
+    <dd class="invisible">The smallest National Park is the Thaddeus Kosciuszko National Memorial in Pennsylvania at .02 acres.</dd>
+
+    <dt>How many people visit the National Parks?</dt>
+    <dd class="invisible">Total recreation visitors to the national parks in 2021: 297,115,406.</dd>
+
+    <dt>What was the most visited National Park site in 2021?</dt>
+    <dd class="invisible">The most visited park site in 2021 was the Blue Ridge Parkway with 15.9 million visitors which goes from The Great Smoky Mountain National Park in Tennessee to Shenandoah National Park in Virginia.</dd>
+
+    <dt>What government agency oversees the National Park System?</dt>
+    <dd class="invisible">The National Park System is a bureau of the Department of the Interior.</dd>
+</dl>
+
+<script src="js/jquery-3.6.0.js"></script>
+<link rel="stylesheet" href="css/parks.css">
+<script>
+
+    $(document).ready(function() {
+        $('#toggle').click(function(event) {
+            event.preventDefault();
+            $('dd').toggleClass('invisible');
+        });
+
+        $('dt').click(function () {
+            $(this).toggleClass('highlight');
+        })
+    });
+
+
+</script>
+</body>
+</html>
