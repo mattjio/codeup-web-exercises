@@ -8,6 +8,11 @@ $.get(URL, {
     units: "imperial"
 }).done(function (data) {
     console.log(data);
-    $(".info").append(data.list[0])
+    console.log(data.city.name)
+    console.log(data.list[0].main.temp)
+    console.log(data.list[0].weather[0].description)
+    document.getElementById('description').innerHTML = data.list[0].weather[0].description;
+    document.getElementById('temp').innerHTML = data.list[0].main.temp;
+    document.getElementById('location').innerHTML = data.city.name;
 })
 
