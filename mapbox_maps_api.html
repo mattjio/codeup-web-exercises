@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mapbox</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+<div id='map' style='width: 95vw; height: 75vh; margin: auto'></div>
+<script src="js/keys.js"></script>
+<script src="js/geocode_utils.js"></script>
+<script>
+    mapboxgl.accessToken = MAPBOX_API_KEY;
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/streets-v11', // style URL
+        center: [-95.36357511044419,29.74410387664878], // starting position [lng, lat]
+        zoom: 13,// starting zoom
+        projection: 'naturalEarth'
+    });
+
+    map.addControl(new mapboxgl.NavigationControl());
+
+    let favorites = [
+        {
+            name: "The Turkey Leg Hut",
+            address: "4830 Almeda Rd suite A/B, Houston, TX 77004",
+            knownFor: "World Famous Stuffed Turkey Legs",
+            coordinates: [-95.37792503497427,29.72598726760438]
+        },
+        {
+            name: "The Breakfast Klub",
+            address: "3711 Travis St, Houston, TX 77002",
+            knownFor: "Wings and Waffles",
+            coordinates: [-95.38051102145616,29.73847490432964]
+        },
+        {
+            name: "Irma's Original",
+            address: "22 N Chenevert St, Houston, TX 77002",
+            knownFor: "Carne Guisada",
+            coordinates: [-95.3519997218571,29.760189844467284]
+        }
+    ]
+
+    favorites.forEach(function (favorite) {
+        let markers = new mapboxgl.Marker()
+            .setLngLat(favorite.coordinates)
+            .addTo(map);
+        let popups = new mapboxgl.Popup()
+            .setHTML(favorite.name +'<br>'+ favorite.address +'<br>'+ favorite.knownFor);
+
+        markers.setPopup(popups);
+    })
+
+    //const marker = new mapboxgl.Marker()
+    //    .setLngLat([-95.377930, 29.726020])
+    //    .addTo(map);
+
+    //const turkeyPopup = new mapboxgl.Popup()
+    //    .setHTML("<p>The Turkey Leg Hut</p>")
+
+    //marker.setPopup(turkeyPopup)
+
+</script>
+</body>
+</html>

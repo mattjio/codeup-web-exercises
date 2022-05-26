@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css' rel='stylesheet' />
+
+</head>
+<body>
+
+<div id='map' style='width: 95vw; height: 75vh; margin: auto'></div>
+<script src="js/keys.js"></script>
+<script src="js/geocode_utils.js"></script>
+<script>
+    mapboxgl.accessToken = MAPBOX_API_KEY;
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/streets-v11', // style URL
+        center: [-98.4946, 29.4252], // starting position [lng, lat]
+        zoom: 9,// starting zoom
+        projection: 'naturalEarth'
+    });
+
+    const marker = new mapboxgl.Marker()
+        .setLngLat([-98.4896, 29.4269])
+        .addTo(map);
+
+    const randomPopup = new mapboxgl.Popup()
+        .setHTML("<p>this does not work</p>")
+
+    //const alamoPopup = new mapboxgl.Popup()
+     //   .setHTML("<p>Remember The Alamo!</p>")
+
+    //marker.setPopup(alamoPopup)
+
+    marker.setPopup(randomPopup);
+
+    geocode("1510 Polk St, Houston, TX 77003", MAPBOX_API_KEY).then(function (data) {
+        console.log(data);
+        const popupRockets = new mapboxgl.Popup()
+            .setLngLat(data)
+            .setHTML("<p>Houston Rockets</p>")
+            .addTo(map);
+    })
+
+</script>
+</body>
+</html>

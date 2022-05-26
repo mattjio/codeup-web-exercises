@@ -1,0 +1,33 @@
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#products {
+    width: 75%;
+
+
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+td {
+    text-align: center;
+}
+
+th {
+    background-color: midnightblue;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table {
+    border: #848487 solid;
+}

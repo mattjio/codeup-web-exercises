@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Store</title>
+    <link rel="stylesheet" href="css/ajaxstore.css">
+</head>
+<body>
+
+<h1>My Tool Store</h1>
+
+<table id="products">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Categories</th>
+        </tr>
+    </thead>
+    <tbody id="insertProducts"></tbody>
+</table>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+(function() {
+
+        "use strict";
+        // TODO: Create an AJAX GET request for the file under data/inventory.json
+        $.get("/data/inventory.json").done(function (data) {
+            console.log(data);
+            $( "#insertProducts" )
+                .append('<tr>'+'<td>' + data[0].title + '</td>' + '<td>' + data[0].quantity + '</td>' + '<td>' + data[0].price + '</td>' + '<td>' + data[0].categories + '</td>' + '</tr>')
+                .append('<tr>'+'<td>' + data[1].title + '</td>' + '<td>' + data[1].quantity + '</td>' + '<td>' + data[1].price + '</td>' + '<td>' + data[1].categories + '</td>' + '</tr>')
+                .append('<tr>'+'<td>' + data[2].title + '</td>' + '<td>' + data[2].quantity + '</td>' + '<td>' + data[2].price + '</td>' + '<td>' + data[2].categories + '</td>' + '</tr>')
+                .append('<tr>'+'<td>' + data[3].title + '</td>' + '<td>' + data[3].quantity + '</td>' + '<td>' + data[3].price + '</td>' + '<td>' + data[3].categories + '</td>' + '</tr>');
+        });
+        // TODO: Take the data from inventory.json and append it to the products table
+        //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+        //             its contents and fields
+        //       HINT: You will want to target #insertProducts for your new HTML elements
+        // display the requested data to the user
+})();
+</script>
+
+</body>
+</html>
