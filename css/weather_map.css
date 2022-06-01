@@ -1,15 +1,52 @@
-
+h1 {
+    margin: 0;
+    text-align: center;
+}
 
 #weather {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
+    margin-right: 5px;
+    margin-left: 5px;
+    text-align: center;
+    margin-top: 5px;
 }
 
 #map {
-    height: 75vh;
-    width: 95vh;
+    height: 45vh;
+    width: 110vh;
     margin: auto;
+    border: solid lightskyblue;
+
+}
+
+#day2 {
+    border: solid lightskyblue;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: whitesmoke;
+}
+
+#day3 {
+    border: solid lightskyblue;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: whitesmoke;
+}
+
+#day4 {
+    border: solid lightskyblue;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: whitesmoke;
+}
+
+#day5 {
+    border: solid lightskyblue;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: whitesmoke;
 }
 
 .coordinates {
@@ -24,4 +61,27 @@
     line-height: 18px;
     border-radius: 3px;
     display: none;
+}
+
+#today {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+body {
+    margin: 0;
+    font-family: 'Oxygen', sans-serif;
+    background-color: #CDDEFF;
+}
+
+#navbar {
+    padding-right: 5px;
+    padding-left: 5px;
+    background-image: url("/img/clouds.jpg");
+    margin-bottom: 10px;
+}
+
+h2 {
+    text-align: center;
 }

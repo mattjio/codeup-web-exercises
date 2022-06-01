@@ -7,16 +7,18 @@
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" href="css/weather_map.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <script src="js/jquery-3.6.0.js"></script>
     <script src="js/keys.js"></script>
     <script src="js/geocode_utils.js"></script>
     <script src="js/weather_map.js"></script>
-    <nav>
+    <div id="navbar">
         <h1 id="heading"></h1>
-    </nav>
-    <div id="today">
+        <div id="today">
         <div id="date1"></div>
         <div id="currenttemp1"></div>
         <div id="description1"></div>
@@ -25,8 +27,10 @@
         <div id="wind1"></div>
         <div id="pressure1"></div>
     </div>
+    </div>
     <div id='map'></div>
     <pre id="coordinates" class="coordinates"></pre>
+    <h2>4 Day Forecast</h2>
     <div id="weather">
         <div id="day2">
             <div id="date2"></div>
@@ -76,9 +80,7 @@
         });
 
 
-
-
-
+        // where the magic happens
         const URL = "https://api.openweathermap.org/data/2.5/forecast";
 
 
@@ -88,33 +90,13 @@
             lon: -98.489670,
             units: "imperial"
         }).done(function (data) {
-            const marker = new mapboxgl.Marker({
-                draggable: true
-            })
-                .setLngLat([-98.4896703, 29.4267857])
-                .addTo(map);
-
-            function onDragEnd() {
-                 marker.getLngLat();
-                console.log(lngLat);
-
-            }
-
-
-            //console.log(data);
-            //console.log(data.city.name)
-            //console.log(data.list[0].main.temp)
-            //console.log(data.list[0].weather[0].description)
-            //console.log(data.list[1].dt_txt.split(' ')[0])
-            //console.log(data.city.coord.lat)
-
             document.getElementById('heading').innerHTML = data.city.name + ' weather';
             //day 1
-            document.getElementById('date1').innerHTML = data.list[0].dt_txt.split(' ')[0]
+            document.getElementById('date1').innerHTML = 'current weather'
             document.getElementById('description1').innerHTML = data.list[0].weather[0].description;
             document.getElementById('currenttemp1').innerHTML = parseFloat(data.list[0].main.temp.toFixed(1)) + '&deg;';
-            document.getElementById('humidity1').innerHTML = 'humidity: ' + data.list[0].main.humidity;
-            document.getElementById('wind1').innerHTML = 'wind: ' + data.list[0].wind.speed;
+            document.getElementById('humidity1').innerHTML = 'humidity: ' + data.list[0].main.humidity + '%';
+            document.getElementById('wind1').innerHTML = 'wind: ' + data.list[0].wind.speed + ' mph';
             document.getElementById('pressure1').innerHTML = 'pressure: ' + data.list[0].main.pressure;
             document.getElementById('temps1').innerHTML = parseFloat(data.list[0].main.temp_min.toFixed(1)) + '&deg;' + ' / ' + parseFloat(data.list[0].main.temp_max.toFixed(1)) + '&deg;';
 
@@ -155,6 +137,81 @@
             document.getElementById('temps5').innerHTML = parseFloat(data.list[30].main.temp_min.toFixed(1)) + '&deg;' + ' / ' + parseFloat(data.list[30].main.temp_max.toFixed(1)) + '&deg;';
 
         })
+
+        const marker = new mapboxgl.Marker({
+            draggable: true
+        })
+            .setLngLat([-98.4896703, 29.4267857])
+            .addTo(map);
+            function onDragEnd() {
+                 const lngLat = marker.getLngLat();
+
+                $.get(URL, {
+                    APPID : OPEN_WEATHER_KEY,
+                    lat: lngLat.lat,
+                    lon: lngLat.lng,
+                    units: "imperial"
+                }).done(function (data) {
+
+
+                    document.getElementById('heading').innerHTML = data.city.name + ' weather';
+                    //day 1
+                    document.getElementById('date1').innerHTML = 'Current Weather'
+                    document.getElementById('description1').innerHTML = data.list[0].weather[0].description;
+                    document.getElementById('currenttemp1').innerHTML = parseFloat(data.list[0].main.temp.toFixed(1)) + '&deg;';
+                    document.getElementById('humidity1').innerHTML = 'humidity: ' + data.list[0].main.humidity;
+                    document.getElementById('wind1').innerHTML = 'wind: ' + data.list[0].wind.speed;
+                    document.getElementById('pressure1').innerHTML = 'pressure: ' + data.list[0].main.pressure;
+                    document.getElementById('temps1').innerHTML = parseFloat(data.list[0].main.temp_min.toFixed(1)) + '&deg;' + ' / ' + parseFloat(data.list[0].main.temp_max.toFixed(1)) + '&deg;';
+
+                    //day 2
+                    document.getElementById('date2').innerHTML = data.list[6].dt_txt.split(' ')[0]
+                    document.getElementById('description2').innerHTML = data.list[6].weather[0].description;
+                    document.getElementById('currenttemp2').innerHTML = parseFloat(data.list[6].main.temp.toFixed(1)) + '&deg;';
+                    document.getElementById('humidity2').innerHTML = 'humidity: ' + data.list[6].main.humidity;
+                    document.getElementById('wind2').innerHTML = 'wind: ' + data.list[6].wind.speed;
+                    document.getElementById('pressure2').innerHTML = 'pressure: ' + data.list[6].main.pressure;
+                    document.getElementById('temps2').innerHTML = parseFloat(data.list[6].main.temp_min.toFixed(1)) + '&deg;' + ' / ' + parseFloat(data.list[6].main.temp_max.toFixed(1)) + '&deg;';
+
+                    //day3
+                    document.getElementById('date3').innerHTML = data.list[14].dt_txt.split(' ')[0]
+                    document.getElementById('description3').innerHTML = data.list[14].weather[0].description;
+                    document.getElementById('currenttemp3').innerHTML = parseFloat(data.list[14].main.temp.toFixed(1)) + '&deg;';
+                    document.getElementById('humidity3').innerHTML = 'humidity: ' + data.list[14].main.humidity;
+                    document.getElementById('wind3').innerHTML = 'wind: ' + data.list[14].wind.speed;
+                    document.getElementById('pressure3').innerHTML = 'pressure: ' + data.list[14].main.pressure;
+                    document.getElementById('temps3').innerHTML = parseFloat(data.list[14].main.temp_min.toFixed(1)) + '&deg;' + ' / ' + parseFloat(data.list[14].main.temp_max.toFixed(1)) + '&deg;';
+
+                    //day 4
+                    document.getElementById('date4').innerHTML = data.list[22].dt_txt.split(' ')[0]
+                    document.getElementById('description4').innerHTML = data.list[22].weather[0].description;
+                    document.getElementById('currenttemp4').innerHTML = parseFloat(data.list[22].main.temp.toFixed(1)) + '&deg;';
+                    document.getElementById('humidity4').innerHTML = 'humidity: ' + data.list[22].main.humidity;
+                    document.getElementById('wind4').innerHTML = 'wind: ' + data.list[22].wind.speed;
+                    document.getElementById('pressure4').innerHTML = 'pressure: ' + data.list[22].main.pressure;
+                    document.getElementById('temps4').innerHTML = parseFloat(data.list[22].main.temp_min.toFixed(1)) + '&deg;' + ' / ' + parseFloat(data.list[22].main.temp_max.toFixed(1)) + '&deg;';
+
+                    //day 5
+                    document.getElementById('date5').innerHTML = data.list[30].dt_txt.split(' ')[0]
+                    document.getElementById('description5').innerHTML = data.list[30].weather[0].description;
+                    document.getElementById('currenttemp5').innerHTML = parseFloat(data.list[30].main.temp.toFixed(1)) + '&deg;';
+                    document.getElementById('humidity5').innerHTML = 'humidity: ' + data.list[30].main.humidity;
+                    document.getElementById('wind5').innerHTML = 'wind: ' + data.list[30].wind.speed;
+                    document.getElementById('pressure5').innerHTML = 'pressure: ' + data.list[30].main.pressure;
+                    document.getElementById('temps5').innerHTML = parseFloat(data.list[30].main.temp_min.toFixed(1)) + '&deg;' + ' / ' + parseFloat(data.list[30].main.temp_max.toFixed(1)) + '&deg;';
+            })
+
+
+
+
+            //console.log(data);
+            //console.log(data.city.name)
+            //console.log(data.list[0].main.temp)
+            //console.log(data.list[0].weather[0].description)
+            //console.log(data.list[1].dt_txt.split(' ')[0])
+            //console.log(data.city.coord.lat)
+            }
+        marker.on('dragend', onDragEnd);
     </script>
 </body>
 </html>
