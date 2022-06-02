@@ -90,6 +90,7 @@
             lon: -98.489670,
             units: "imperial"
         }).done(function (data) {
+            console.log(data);
             document.getElementById('heading').innerHTML = data.city.name + ' weather';
             //day 1
             document.getElementById('date1').innerHTML = 'current weather'
