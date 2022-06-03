@@ -46,7 +46,7 @@ users.push({
 
   name,
   email,
-  languages,
+  languages
 });
 
 // TODO: replace `var` with `let` in the following variable declarations
@@ -58,7 +58,7 @@ let names = [];
 //  return emails.push(user.email);
 //});
 
-users.forEach(user => {
+users.forEach ((user) => {
   return emails.push(user.email);
 })
 
@@ -66,7 +66,7 @@ users.forEach(user => {
 //  return names.push(user.name);
 //});
 
-users.forEach(user => {
+users.forEach((user) => {
   return names.push(user.name);
 })
 
@@ -80,7 +80,7 @@ users.forEach(function(user) {
   //const email = user.email;
   //const languages = user.languages;
 
-  const {name, email, languages} = user
+  const {name, email, languages} = user;
 
   // TODO: rewrite the assignment below to use template strings
   //developers.push(name + '\'s email is ' + email + name + ' knows ' + languages.join(', '));
