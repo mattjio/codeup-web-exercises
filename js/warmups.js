@@ -146,11 +146,17 @@ function mostColorful(arr) {
 
 mostColorful(hamsters);
 
-function stringToObject(x) {
-    let stringObject = {};
-        stringObject.string: "x";
-        stringObject.size: x.length;
-        stringObject.containsLetterFromRSTLNE: x.includes("R","S","T","L","N","E");
-        stringObject.isOneWord: x.indexOf(" ") < 0;
+//function stringToObject(x) {
+    //let stringObject = {};
+        //stringObject.string: "x";
+        //stringObject.size: x.length;
+        //stringObject.containsLetterFromRSTLNE: x.includes("R","S","T","L","N","E");
+        //stringObject.isOneWord: x.indexOf(" ") < 0;
 
-}
+//}
+
+fetch('https://quotes.rest/qod')
+    .then(response => response.json()).then((response) => {
+    console.log(response)
+})
+    .catch(error => console.error(error));
