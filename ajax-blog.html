@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax-blog</title>
+</head>
+<body>
+    <div id="posts"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $.get("/data/blog.json").done(function (data) {
+            console.log(data);
+            data.forEach(function (blog) {
+                let set ='<div><h2>'+blog.title+'</h2><p>'+blog.content+'</p><p>'+blog.categories+'</p><p>'+blog.date+'</p></div>'
+                $("#posts").append(set);
+            })
+        });
+    </script>
+</body>
+</html>

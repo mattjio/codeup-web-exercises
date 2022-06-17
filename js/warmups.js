@@ -160,3 +160,44 @@ fetch('https://quotes.rest/qod')
     console.log(response)
 })
     .catch(error => console.error(error));
+
+//function sayHello(name) {
+    //return 'Hello, ' + name + '!';
+//}
+//console.log(sayHello('matt'));
+
+const sayHello = (name) => { 'Hello, ' + name + '!' }
+
+//const sayHello = name => { 'Hello, ' + name + '!' }
+
+//const sayHello = (name) => `Hello, ${name}!`
+
+console.log(sayHello('matt'))
+
+
+
+
+
+
+
+const isDivisibleBy3 = n => n % 3 === 0;
+
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+console.log(numbers.filter(isDivisibleBy3));
+console.log(numbers);
+
+let originalString = 'This';
+let description = 'stupid'
+
+
+//var myOutput = originalString + " is an example of " + description + " thinking.";
+//console.log(myOutput)
+
+//var myOutput = '${originalString}' + ' is an example of " + '${description}' + ' thinking.';
+//const myOutput = `{originalString} is an example of {description} thinking.`;
+let myOutput = `${originalString} is an example of ${description} thinking.`;
+
+
+
+console.log(myOutput)
