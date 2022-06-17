@@ -1,0 +1,50 @@
+
+
+div {
+    margin-bottom: 20px;
+}
+
+header {
+    text-align: center;
+    background-color: black;
+}
+
+#posts {
+    margin: 10px;
+}
+
+h2 {
+    text-align: center;
+}
+
+@keyframes bgcolor {
+    0% {
+        background-color: darkslateblue;
+    }
+
+    30% {
+        background-color: midnightblue;
+    }
+
+    60% {
+        background-color: purple;
+    }
+
+    90% {
+        background-color: rebeccapurple;
+    }
+
+    100% {
+        background-color: darkblue;
+    }
+}
+
+body {
+    margin: 0;
+    -webkit-animation: bgcolor 20s infinite;
+    animation: bgcolor 10s infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+    color: whitesmoke;
+    font-family: 'Mukta', sans-serif;
+}
